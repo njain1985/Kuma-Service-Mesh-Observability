@@ -1,6 +1,7 @@
 MICROSERVICES OBSERVABILITY With SERVICES MESH and NEW RELIC ONE (NR1)
 ======================================================================
 
+![Solution](https://user-images.githubusercontent.com/25683435/96712545-0958f800-13eb-11eb-8795-d6d46656d3ad.png)
 
 In this Nerd Day session, we will provide you the fundamentals of Kuma Service Mesh, NR1, K8s and Open Source Metrics, Tracing and Logging
 
