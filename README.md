@@ -5,6 +5,12 @@ MICROSERVICES OBSERVABILITY With SERVICES MESH and NEW RELIC ONE (NR1)
 
 In this Nerd Day session, we will provide you the fundamentals of Kuma Service Mesh, NR1, K8s and Open Source Metrics, Tracing and Logging
 
+Why should you care?
+1. Fragmentation of Traces, Metrics and Logs
+2. Reduce the MTTXs for degradations/exceptions with your microservices 
+3. Minimize hops and Dev/Ops resource fatigue optimization (1 O11y console vs 7 GUIs)
+
+
 ## INTRODUCTIONS
 -------------------------------------------
 
