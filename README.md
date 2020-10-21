@@ -64,6 +64,9 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 ## 1.3 Deploy the Marketplace full stack app (Vue.js Browser, NodeJS App, Redis and PostgreSQL)
 -------------------------------------------
+
+![App Architecture](https://user-images.githubusercontent.com/25683435/96713912-1ecf2180-13ed-11eb-8fa7-15889043466a.jpg)
+
 - Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
     kubectl apply -f kuma-aio.yaml
     output: namespace/kuma-demo created
