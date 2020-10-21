@@ -70,6 +70,14 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 - Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
 
+- [NR1 settings page](https://one.newrelic.com/launcher/account-settings-launcher.account-settings-launcher)
+
+        First open the kuma-aio.yaml or vi kuma-aio.yaml and add the new relic license key
+
+        You may grab your license key from this and replace in the yaml file:
+          name: NEW_RELIC_LICENSE_KEY
+          value: "<INSERT_LICENSE_KEY>"
+
         $ kubectl apply -f kuma-aio.yaml
     
 
