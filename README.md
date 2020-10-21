@@ -57,7 +57,7 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 ## 1.2 Start your Minikube K8s Cluster
 -------------------------------------------
-* minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 (min) --memory=8192 
+	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 (min) --memory=8192 
 - Wait until you see this output:
 	Done! kubectl is now configured to use "kuma-demo"
 * Note: You may also leverage [EKS](https://console.aws.amazon.com/eks/home?region=us-east-1#), [GKE](https://console.cloud.google.com/) or [AKS](https://portal.azure.com/?quickstart=true#home). 
@@ -68,29 +68,29 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 ![App Architecture](https://user-images.githubusercontent.com/25683435/96713912-1ecf2180-13ed-11eb-8fa7-15889043466a.jpg)
 
 - Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
-    kubectl apply -f kuma-aio.yaml
-    output: namespace/kuma-demo created
-    deployment.apps/postgres-master created
-    service/postgres created
-    deployment.apps/redis-master created
-    service/redis created
-    service/backend created
-    deployment.apps/kuma-demo-backend-v0 created
-    deployment.apps/kuma-demo-backend-v1 created
-    deployment.apps/kuma-demo-backend-v2 created
-    service/frontend created
-    deployment.apps/kuma-demo-app created
+	kubectl apply -f kuma-aio.yaml
+	output: namespace/kuma-demo created
+	deployment.apps/postgres-master created
+	service/postgres created
+	deployment.apps/redis-master created
+	service/redis created
+	service/backend created
+	deployment.apps/kuma-demo-backend-v0 created
+    	deployment.apps/kuma-demo-backend-v1 created
+    	deployment.apps/kuma-demo-backend-v2 created
+    	service/frontend created
+    	deployment.apps/kuma-demo-app created
 
 - And then check the pods are up and running by getting all pods in the kuma-demo namespace:
-    $ kubectl get pods -n kuma-demo
-    NAME                                   READY   STATUS    RESTARTS   AGE
-    kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
-    kuma-demo-backend-v0-d7cb6b576-nrl67   1/1     Running   0          40s
-    postgres-master-65df766577-qqqwr       1/1     Running   0          40s
-    redis-master-78ff699f7-rsdfk           1/1     Running   0          40s
+    	$ kubectl get pods -n kuma-demo
+    	NAME                                   READY   STATUS    RESTARTS   AGE
+   	kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
+    	kuma-demo-backend-v0-d7cb6b576-nrl67   1/1     Running   0          40s
+    	postgres-master-65df766577-qqqwr       1/1     Running   0          40s
+    	redis-master-78ff699f7-rsdfk           1/1     Running   0          40s
 
 
 - If you are on a cloud K8s, an external IP and Port will be auto-generally (Frontend Service is LoadBalancer Type), if you're on a Minikube, simply port-forward your frontend service:
-    kubectl port-forward service/frontend -n kuma-demo 8080
-    Forwarding from 127.0.0.1:8080 -> 8080
-    Forwarding from [::1]:8080 -> 8080  
+    	kubectl port-forward service/frontend -n kuma-demo 8080
+    	Forwarding from 127.0.0.1:8080 -> 8080
+    	Forwarding from [::1]:8080 -> 8080  
