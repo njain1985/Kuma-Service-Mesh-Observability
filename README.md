@@ -5,7 +5,7 @@ MICROSERVICES OBSERVABILITY With SERVICES MESH and NEW RELIC ONE (NR1)
 
 In this Nerd Day session, we will provide you the fundamentals of Kuma Service Mesh, NR1, K8s and Open Source Metrics, Tracing and Logging
 
-Why should you care?
+### Why should you care?
 1. Fragmentation of Traces, Metrics and Logs
 2. Reduce the MTTXs for degradations/exceptions with your microservices 
 3. Minimize hops and Dev/Ops resource fatigue optimization (1 O11y console vs 7 GUIs)
@@ -61,3 +61,33 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 - Wait until you see this output:
 	Done! kubectl is now configured to use "kuma-demo"
 * Note: You may also leverage [EKS](https://console.aws.amazon.com/eks/home?region=us-east-1#), [GKE](https://console.cloud.google.com/) or [AKS](https://portal.azure.com/?quickstart=true#home). 
+
+## 1.3 Deploy the Marketplace full stack app (Vue.js Browser, NodeJS App, Redis and PostgreSQL)
+-------------------------------------------
+- Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
+    kubectl apply -f kuma-aio.yaml
+    output: namespace/kuma-demo created
+    deployment.apps/postgres-master created
+    service/postgres created
+    deployment.apps/redis-master created
+    service/redis created
+    service/backend created
+    deployment.apps/kuma-demo-backend-v0 created
+    deployment.apps/kuma-demo-backend-v1 created
+    deployment.apps/kuma-demo-backend-v2 created
+    service/frontend created
+    deployment.apps/kuma-demo-app created
+
+- And then check the pods are up and running by getting all pods in the kuma-demo namespace:
+    $ kubectl get pods -n kuma-demo
+    NAME                                   READY   STATUS    RESTARTS   AGE
+    kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
+    kuma-demo-backend-v0-d7cb6b576-nrl67   1/1     Running   0          40s
+    postgres-master-65df766577-qqqwr       1/1     Running   0          40s
+    redis-master-78ff699f7-rsdfk           1/1     Running   0          40s
+
+
+- If you are on a cloud K8s, an external IP and Port will be auto-generally (Frontend Service is LoadBalancer Type), if you're on a Minikube, simply port-forward your frontend service:
+    kubectl port-forward service/frontend -n kuma-demo 8080
+    Forwarding from 127.0.0.1:8080 -> 8080
+    Forwarding from [::1]:8080 -> 8080  
