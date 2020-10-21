@@ -9,6 +9,10 @@ In this Nerd Day session, we will provide you the fundamentals of Kuma Service M
 1. Fragmentation of Traces, Metrics and Logs
 2. Reduce the MTTXs for degradations/exceptions with your microservices 
 3. Minimize hops and Dev/Ops resource fatigue optimization (1 O11y console vs 7 GUIs)
+4. Have a monitor for your monitoring Infrastructure (Airbus A380 metaphor)
+
+Let's see a demo
+[NR1 Service Mesh Demo](loom video to be added)
 
 
 ## INTRODUCTIONS
