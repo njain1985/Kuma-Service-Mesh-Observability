@@ -25,6 +25,7 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 4. Deploy Kuma Marketplace full-stack app (Vue.js Browser Service, NodeJS App service, PostgreSQL and Redis)
    Note that the Kuma Marketplace has been pre-instrumented with New Relic FSO (APM and Browser)
    Docker hub public image used: [monitorjain/kuma-demo-frontend:v3](https://hub.docker.com/r/monitorjain/kuma-demo-frontend) and [monitorjain/kuma-demo-backend:latest](https://hub.docker.com/repository/docker/monitorjain/kuma-demo-backend)
+5. Deploy New Relic [Helm Chart](one.newrelic.com) for K8s (deploys prometheus, logs, traces, metadata injector, daemonset, native events collector etc)
 
 ### Setup Environment
 -------------------------------------------
