@@ -69,29 +69,14 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 - Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
 
-<<<<<<< HEAD
-    $ kubectl apply -f kuma-aio.yaml
+        $ kubectl apply -f kuma-aio.yaml
     
-=======
-	$ kubectl apply -f https://bit.ly/demokuma
-	namespace/kuma-demo created
-	deployment.apps/postgres-master created
-	service/postgres created
-	deployment.apps/redis-master created
-	service/redis created
-	service/backend created
-	deployment.apps/kuma-demo-backend-v0 created
-	deployment.apps/kuma-demo-backend-v1 created
-	deployment.apps/kuma-demo-backend-v2 created
-	service/frontend created
-	deployment.apps/kuma-demo-app created
->>>>>>> 3288ba00f43eac0fcbdd79d89a5a67ec7268423f
 
 - And then check the pods are up and running by getting all pods in the kuma-demo namespace:
 
     	$ kubectl get pods -n kuma-demo
     	NAME                                   READY   STATUS    RESTARTS   AGE
-   	kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
+    	kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
     	kuma-demo-backend-v0-d7cb6b576-nrl67   1/1     Running   0          40s
     	postgres-master-65df766577-qqqwr       1/1     Running   0          40s
     	redis-master-78ff699f7-rsdfk           1/1     Running   0          40s
