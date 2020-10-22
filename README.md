@@ -190,11 +190,11 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 ## 4.0 NEW RELIC ACTIVATION STEPS
 -------------------------------------------
-* [Create Workload](https://one.newrelic.com/launcher/workloads.home) [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/workloads/use-workloads#:~:text=one.newrelic.com%20%3E%20Apps,API%20to%20create%20a%20workload.)
+* [Create Workload](https://one.newrelic.com/launcher/workloads.home) | [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/workloads/use-workloads#:~:text=one.newrelic.com%20%3E%20Apps,API%20to%20create%20a%20workload.)
 
-* [Explore K8s explorer](https://one.newrelic.com/launcher/k8s-cluster-explorer-nerdlet.cluster-explorer-launcher?) [Doc](https://docs.newrelic.com/docs/integrations/kubernetes-integration/understand-use-data/kubernetes-cluster-explorer)
+* [Explore K8s explorer](https://one.newrelic.com/launcher/k8s-cluster-explorer-nerdlet.cluster-explorer-launcher?) | [Doc](https://docs.newrelic.com/docs/integrations/kubernetes-integration/understand-use-data/kubernetes-cluster-explorer)
 
-* [Explore Entities](https://one.newrelic.com/launcher/nr1-core.explorer) [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/ui-data/entity-explorer-view-performance-across-apps-services-hosts)
+* [Explore Entities](https://one.newrelic.com/launcher/nr1-core.explorer) | [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/ui-data/entity-explorer-view-performance-across-apps-services-hosts)
 
 ## 5.0 NEW RELIC ADD-ONS
 -------------------------------------------
