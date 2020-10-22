@@ -177,15 +177,15 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 ## 3.0 NEW RELIC CENTRALIZED O11Y SETUP
 -------------------------------------------
-* Click on K8s instrumentation option via User menu [Setup K8s 0](https://user-images.githubusercontent.com/25683435/96803352-d13bce80-1457-11eb-9587-615acee29dfd.png)
+* Click on K8s instrumentation option via User menu ![Setup K8s 0](https://user-images.githubusercontent.com/25683435/96803352-d13bce80-1457-11eb-9587-615acee29dfd.png)
 
-* Fill in the required details and config attributes [Setup K8s 1](https://user-images.githubusercontent.com/25683435/96803364-d6991900-1457-11eb-8873-09c2063347b2.png)
+* Fill in the required details and config attributes ![Setup K8s 1](https://user-images.githubusercontent.com/25683435/96803364-d6991900-1457-11eb-8873-09c2063347b2.png)
 
-* Next, copy helm chart deploy commands to clipboard [Setup K8s 2](https://user-images.githubusercontent.com/25683435/96803366-d862dc80-1457-11eb-8c7f-e61b219669a0.png)
+* Next, copy helm chart deploy commands to clipboard ![Setup K8s 2](https://user-images.githubusercontent.com/25683435/96803366-d862dc80-1457-11eb-8c7f-e61b219669a0.png)
 * In case, if you don't have helm installed on your workstation, brew install helm
 
 
-* Last, validate that the data is received [Setup K8s 3](https://user-images.githubusercontent.com/25683435/96803368-db5dcd00-1457-11eb-8746-5c872f34ba99.png)
+* Last, validate that the data is received ![Setup K8s 3](https://user-images.githubusercontent.com/25683435/96803368-db5dcd00-1457-11eb-8746-5c872f34ba99.png)
 * Note: Your traffic permissions may block data off - skim through your Service Mesh config and settings via the GUI
 
 ## 4.0 NEW RELIC ACTIVATION STEPS
