@@ -15,6 +15,10 @@ In this Nerd Day session, we will provide you the fundamentals of Kuma Service M
 
 Let's see a demo
 [NR1 Service Mesh Demo](loom video to be added)
+- Limit special orders
+- Protection spamming
+- Fault Injection for emulation (Chaos Engineering)
+- Circuit Breaking for elegant failing and re-routing
 
 
 ## INTRODUCTIONS
@@ -119,10 +123,15 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 * On K8s, KUBERNETES, Run the following command:
 
         cd kuma-0.7.1/bin && ls
+
         $ kumactl install control-plane | kubectl apply -f -
+        
         $ kubectl get pods -n kuma-system (validate that kuma control plane is deployed and running)
+        
         $ kubectl delete pods --all -n kuma-demo (delete existing pods for sidecar injector to kick-in)
+        
         $ kubectl get pods -n kuma-demo -w (this time you'll observe multi-container pods - viola, envoy is ready!)
+        
         $ kubectl port-forward service/frontend -n kuma-demo 8080 (port forward again - only for Minikube)
 
 * When running on K8s, there is no external dependency since its written in Go and has no external dependencies (leverages underlying API server to store its config - universal and straight forward to deploy)
@@ -130,13 +139,20 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 * Now we are ready to deploy some dataplane (envoy proxy side cars: fret not the annotations are included in my kuma-aio.yaml)
 
 * NEXT STEPS: You can now explore the Kuma GUI on port 5681!
+        
         kubectl port-forward service/kuma-control-plane -n kuma-system 5681 (to access KUMA GUI: http://localhost:5681/gui)
 
 * Next, configure kumactl to point to the address where the HTTP API server sits:
+        
         $ ./kumactl config control-planes add --name=minikube --address=http://localhost:5681
 
 * Inspect the dataplanes by leveraging
+        
         $ ./kumactl inspect dataplanes (via CLI)
+
+        added Control Plane "minikube"
+        
+        switched active Control Plane to "minikube"
 
         http://localhost:5681/gui (visually)
 
@@ -199,9 +215,79 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 ## 5.0 NEW RELIC ADD-ONS
 -------------------------------------------
 * Ready to use alerts and dashboard templates for Terraform
+
 * Ready to use alert & dashboard JSONs
+
 * Walk through video 
+
 * Please raise an issue if you have recommendations for improvements
+
 * Kuma Mesh - Logging, Tracing and Metrics collection setup
+
 * Advanced Kuma deployment - Global and multi-zone mode
+
 * Advance Kuma specific monitoring templates and alerting strategy
+
+* For leveraging OSS natively on a Mesh - https://github.com/kumahq/kuma-demo/tree/master/kubernetes#prometheus-and-grafana
+
+
+## OTHER CRITICAL USE-CASES
+-------------------------------------------
+* Get Meshes
+
+        $ ./kumactl get meshes
+
+* Activate MTLS
+
+        $ cat <<EOF | kubectl apply -f - 
+        apiVersion: kuma.io/v1alpha1
+        kind: Mesh
+        metadata:
+        name: default
+        spec:
+        mtls:
+            enabledBackend: ca-1
+            backends:
+            - name: ca-1
+            type: builtin
+        metrics:
+            enabledBackend: prometheus-1
+            backends:
+            - name: prometheus-1
+            type: prometheus
+        EOF
+
+* Validation step
+
+        $ ./kumactl get meshes
+        NAME      mTLS           METRICS                   LOGGING   TRACING   AGE
+        default   builtin/ca-1   prometheus/prometheus-1   off       off       24m
+
+* Traffic permission
+
+        $ cat <<EOF | kubectl apply -f - 
+        apiVersion: kuma.io/v1alpha1
+        kind: TrafficPermission
+        mesh: default
+        metadata:
+        namespace: kuma-demo
+        name: everything
+        spec:
+        sources:
+        - match:
+            kuma.io/service: '*'
+        destinations:
+        - match:
+            kuma.io/service: '*'
+        EOF
+
+* Delete free flowing traffic permission (Stop fake spamming reviews from being submitted into Redis)
+
+        $ kubectl delete trafficpermission -n kuma-demo --all
+
+* Scale Replicas - backend-v1 and backend-v2 were deployed with 0 replicas so let's scale them up to one replica to see how traffic routing works:
+
+        $ kubectl scale deployment kuma-demo-backend-v1 -n kuma-demo --replicas=1
+
+
+        $ kubectl scale deployment kuma-demo-backend-v2 -n kuma-demo --replicas=1
