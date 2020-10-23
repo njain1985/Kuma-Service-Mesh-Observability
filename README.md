@@ -192,6 +192,8 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
                 servicePort: 8080
         EOF
 
+        Now, hit the PROXY_IP URL (i.e. the Ingress Kong API G/W address), the marketplace app should be available there. 
+
 
 ## 3.0 NEW RELIC CENTRALIZED O11Y SETUP
 -------------------------------------------
