@@ -156,7 +156,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "<INSERT_LICENSE_KEY>"
+          value: "5f835b51e5439c1efc41a80198b76671f569055c"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -191,7 +191,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "<INSERT_LICENSE_KEY>"
+          value: "5f835b51e5439c1efc41a80198b76671f569055c"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -228,7 +228,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "<INSERT_LICENSE_KEY>"
+          value: "5f835b51e5439c1efc41a80198b76671f569055c"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -278,5 +278,5 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "<INSERT_LICENSE_KEY>"
+          value: "5f835b51e5439c1efc41a80198b76671f569055c"
         

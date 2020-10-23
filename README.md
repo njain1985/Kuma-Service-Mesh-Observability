@@ -69,6 +69,8 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 ## 1.2 Start your Minikube K8s Cluster
 -------------------------------------------
 	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 (min) --memory=8192 
+- Caution verify the compute power on your laptop before allocating 3 CPUs and 8 Gb memory
+
 - Wait until you see this output:
 	Done! kubectl is now configured to use "kuma-demo"
 * Note: You may also leverage [EKS](https://console.aws.amazon.com/eks/home?region=us-east-1#), [GKE](https://console.cloud.google.com/) or [AKS](https://portal.azure.com/?quickstart=true#home). 
@@ -178,16 +180,16 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
         apiVersion: extensions/v1beta1
         kind: Ingress
         metadata:
-          name: marketplace
-          namespace: kuma-demo
+        name: marketplace
+        namespace: kuma-demo
         spec:
-          rules:
-          - http:
-              paths:
-              - path: /
+        rules:
+        - http:
+            paths:
+            - path: /
                 backend:
-                  serviceName: frontend
-                  servicePort: 8080
+                serviceName: frontend
+                servicePort: 8080
         EOF
 
 
