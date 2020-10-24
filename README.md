@@ -68,7 +68,7 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 
 ## 1.2 Start your Minikube K8s Cluster
 -------------------------------------------
-	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 (min) --memory=8192 
+	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 --memory=8192 
 - Caution verify the compute power on your laptop before allocating 3 CPUs and 8 Gb memory
 
 - Wait until you see this output:
@@ -79,10 +79,13 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 -------------------------------------------
 
 Before continuing with the deployment, let's build a docker image with your New Relic Browser Agent baked-in.
+The nodejs app is pre-baked with the new relic application agent. This same agent will also monitor Redis and PostgreSQL DB transactions.
 
-Click on this [link](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/) to continue
+Lets get the Vue.js app dockerized with your New Relic browser agent, click [link](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/) to get started.
 
 # Continue 
+
+CAUTION: Do not continue this sub-stage before creating your NR instrumented Vue.js browser app docker image.
 
 Welcome back, now, let's add your unique New Relic License Key to the K8s deployment YAML below.
 
