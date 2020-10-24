@@ -1,6 +1,6 @@
-# Marketplace Frontend Monitoring
+# Marketplace New Relic Instrumented Frontend App docker image creation step
 
-Firstly, browser agent activation is generally extremely simple and doesn't require manual copy + paste script
+First, browser agent activation is generally extremely simple and doesn't require manual copy + paste script
 with some exceptions (like in the case of NODEJS app services)
 
 ### Build the Frontend docker image with the New Relic Browser (RUM) Agent baked in
