@@ -1,16 +1,22 @@
-# Marketplace Frontend
+# Marketplace Frontend Monitoring
 
-https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/dist/index.html
+Firstly, browser agent activation is generally extremely simple and doesn't require manual copy + paste script
+with some exceptions (like in the case of NODEJS app services)
 
-### Run your tests
+### Build the Frontend docker image with the New Relic Browser (RUM) Agent baked in
 
-- Before deploying the full stack app, let's bake-in New Relic Browser (RUM) Agent into your website. First, enter the app directory in your cloned git repo via terminal or command line.
+- First, enter the app directory in this cloned repo via terminal or command line.
 
-- Next, cd dist directory and edit index.html
+- Next, "cd dist" and vim or vi  or nano index.html
 
 - Notice the HTML comment on line 8, replace it with the new relic browser script <!-- -->
 
-- In order to generate the browser script for your marketplace app, simply
+- In order to generate the browser script for your marketplace app, simply go to one.newrelic.com 
+
+- ![STEP 1](https://user-images.githubusercontent.com/25683435/97065490-632f0d00-15f9-11eb-9e16-17c88668ec3f.png)
+- ![STEP 2](https://user-images.githubusercontent.com/25683435/97065486-60ccb300-15f9-11eb-826b-53fe1494076b.png)
+- ![STEP 3](https://user-images.githubusercontent.com/25683435/97065482-5ca09580-15f9-11eb-8676-3095fc95e4a7.png)
+
 
 - You should now be able to view the app by going to [http://localhost:8080/](http://localhost:8080/).
 
