@@ -82,7 +82,9 @@ Before continuing with the deployment, let's build a docker image with your New 
 
 Click on this [link](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/) to continue
 
-[Welcome back, now, let's add your unique New Relic License Key to the K8s deployment YAML below.](#continue) 
+#Continue 
+
+Welcome back, now, let's add your unique New Relic License Key to the K8s deployment YAML below.
 
 ![App Architecture](https://user-images.githubusercontent.com/25683435/96713912-1ecf2180-13ed-11eb-8fa7-15889043466a.jpg)
 
