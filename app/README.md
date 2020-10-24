@@ -5,9 +5,11 @@ with some exceptions (like in the case of NODEJS app services)
 
 ### Build the Frontend docker image with the New Relic Browser (RUM) Agent baked in
 
-- First, enter the app directory in this cloned repo via terminal or command line.
+- First, cd "app" directory in this cloned repo via terminal or command line.
 
-- Next, "cd dist" and vim or vi  or nano index.html
+- Now, "cd dist"
+
+- Now, vim or nano index.html
 
 - Notice the HTML comment on line 8, replace it with the new relic browser script <!-- -->
 

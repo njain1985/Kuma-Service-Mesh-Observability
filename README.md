@@ -91,11 +91,15 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
 ![App Architecture](https://user-images.githubusercontent.com/25683435/96713912-1ecf2180-13ed-11eb-8fa7-15889043466a.jpg)
 
-- Run the following command to deploy the marketplace application via bit.ly/demokuma, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
+- cd ../full_stack_app_with_NR_FSO/ 
 
-- [NR1 settings page](https://one.newrelic.com/launcher/account-settings-launcher.account-settings-launcher)
+- vim or nano kuma-aio.yaml
 
-        First open the kuma-aio.yaml or vi kuma-aio.yaml and add the new relic license key
+- Run the following command to deploy the marketplace application, which points to the [all-in-one YAML](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/full_stack_app_with_NR_FSO/kuma-aio.yaml) file provided in this directory:
+
+- To get the license key, on a new tab - visit the [NR1 settings page](https://one.newrelic.com/launcher/account-settings-launcher.account-settings-launcher)
+
+        Once you grab the license key from NR1 Settings page, add the new relic license key: 
 
         You may grab your license key from this and replace in the yaml file:
           name: NEW_RELIC_LICENSE_KEY

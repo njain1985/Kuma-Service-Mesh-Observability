@@ -156,7 +156,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "5f835b51e5439c1efc41a80198b76671f569055c"
+          value: "<INSERT_LICENSE_KEY>"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -191,7 +191,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "5f835b51e5439c1efc41a80198b76671f569055c"
+          value: "<INSERT_LICENSE_KEY>"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -228,7 +228,7 @@ spec:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "5f835b51e5439c1efc41a80198b76671f569055c"
+          value: "<INSERT_LICENSE_KEY>"
         imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 3001
@@ -271,12 +271,12 @@ spec:
     spec:
       containers:
       - name: kuma-fe
-        image: monitorjain/kuma-demo-frontend:v3
+        image: <add your frontend image>
         args: ["-P", "http://backend:3001"]
         imagePullPolicy: IfNotPresent
         env:
         - name: NEW_RELIC_DISTRIBUTED_TRACING_ENABLED
           value: "true"
         - name: NEW_RELIC_LICENSE_KEY
-          value: "5f835b51e5439c1efc41a80198b76671f569055c"
+          value: "<INSERT_LICENSE_KEY>"
         
