@@ -3,11 +3,12 @@ MICROSERVICES OBSERVABILITY With SERVICES MESH and NEW RELIC ONE (NR1)
 
 ![Solution](https://user-images.githubusercontent.com/25683435/96712545-0958f800-13eb-11eb-8795-d6d46656d3ad.png)
 
-In this Nerd Day session, we will provide you the fundamentals of Kuma Service Mesh, NR1, K8s and Open Source Metrics, Tracing and Logging
+In this tutorial, we will provide you the fundamentals of Kuma Service Mesh, NR1, K8s - Minikube and OSS Metrics, Tracing and Logging
 
 ![Kuma Mesh Architecture](https://user-images.githubusercontent.com/25683435/96800971-5623e980-1452-11eb-900a-3307997d1ca1.jpeg)
 
 ### Why should you care?
+====================================
 1. Fragmentation of Traces, Metrics and Logs
 2. Reduce the MTTXs for degradations/exceptions with your microservices 
 3. Minimize hops and Dev/Ops resource fatigue optimization (1 O11y console vs 7 GUIs)
@@ -15,58 +16,44 @@ In this Nerd Day session, we will provide you the fundamentals of Kuma Service M
 
 Let's see a demo
 [NR1 Service Mesh Demo](loom video to be added)
-- Limit special orders
-- Protection spamming
-- Fault Injection for emulation (Chaos Engineering)
-- Circuit Breaking for elegant failing and re-routing
-
 
 ## INTRODUCTIONS
--------------------------------------------
+====================================
 
-In this directory, you will find the necessary files to get Kuma Service Mesh up and running in a K8s cluster (Minikube used here)
+Upon cloning, you will find the necessary files to get Kuma Service Mesh up and running in a K8s cluster (Minikube used here)
 
 When running on Kubernetes, Kuma will store all of its state and configuration on the underlying Kubernetes API Server, therefore requiring no dependency to store the data.
 
 ### Table of Contents
-* Kubernetes Basic Commands (Cheat sheet)
+* New Relic instrumented Kuma Marketplace full-stack app (Vue.js Browser Service, NodeJS App service, PostgreSQL and Redis)
+
+* Docker hub public image used:
+** [monitorjain/kuma-demo-frontend:v3](https://hub.docker.com/r/monitorjain/kuma-demo-frontend)
+** [monitorjain/kuma-demo-backend:latest](https://hub.docker.com/repository/docker/monitorjain/kuma-demo-backend)
+
 * Kuma Service Mesh (Deployment How-tos)
+
 * New Relic One (Deployment How-tos)
-* Deploy Kuma Marketplace full-stack app (Vue.js Browser Service, NodeJS App service, PostgreSQL and Redis)
-   Note that the Kuma Marketplace has been pre-instrumented with New Relic FSO (APM and Browser)
-   Docker hub public image used: [monitorjain/kuma-demo-frontend:v3](https://hub.docker.com/r/monitorjain/kuma-demo-frontend) and [monitorjain/kuma-demo-backend:latest](https://hub.docker.com/repository/docker/monitorjain/kuma-demo-backend)
+
 * Deploy New Relic [Helm Chart](one.newrelic.com) for K8s (deploys prometheus, logs, traces, metadata injector, daemonset, native events collector etc)
 
-### Setup Environment
--------------------------------------------
-* Optional: Install kubectl - command line tool to run commands against a K8s cluster.
-* You can leverage this CLI to deploy apps, inspect and manage cluster resources, and view logs. 
-* For a complete list you can refer this [resource](https://kubernetes.io/docs/reference/kubectl/overview/)
-* MacOs: brew install kubectl | [Other OS](https://kubernetes.io/docs/tasks/tools/install-kubectl/)
-* Verify install: kubectl version --client
 
-### Bonus: K8s basic commands
+### Environment Setup pre-reqs
 -------------------------------------------
-* To deploy a resource (service/pod/deployment/replicaset) on K8s: kubectl apply -f . 
-* To check cluster version: kubectl cluster-info
-* To check nodes: kubectl get nodes
-* To get a certain pod: kubectl get pod pod1
-* To get a certain pod: kubectl get pod pod1 --all-namespaces
-* To get all resources on a specific namespace: kubectl get all -n default
-* To check logs: kubectl logs pod/pod_name -n kuma-demo
-* To check specific logs: kubectl logs POD [-c CONTAINER] [--follow] [flags]
-* To check pod status: kubectl get pods --watch 
+* You will need a workstation pre-installed with brew, minikube, helm, [kubectl]((https://kubernetes.io/docs/reference/kubectl/overview/), docker, git 
+* For Windows, you will require the equivalent of these utilities
+
 
 
 ## 1.0 Setup Minikube K8s Cluster
--------------------------------------------
+====================================
 
-## 1.1 [Install Minikube](https://minikube.sigs.k8s.io/docs/start/)
+### 1.1 [Install Minikube](https://minikube.sigs.k8s.io/docs/start/)
 -------------------------------------------
 * MacOS: brew install minikube
 * [Other OS](https://minikube.sigs.k8s.io/docs/start/) 
 
-## 1.2 Start your Minikube K8s Cluster
+### 1.2 Start your Minikube K8s Cluster
 -------------------------------------------
 	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 --memory=8192 
 - Caution verify the compute power on your laptop before allocating 3 CPUs and 8 Gb memory
@@ -75,7 +62,7 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 	Done! kubectl is now configured to use "kuma-demo"
 * Note: You may also leverage [EKS](https://console.aws.amazon.com/eks/home?region=us-east-1#), [GKE](https://console.cloud.google.com/) or [AKS](https://portal.azure.com/?quickstart=true#home). 
 
-## 1.3 Deploy the Marketplace full stack app (Vue.js Browser, NodeJS App, Redis and PostgreSQL)
+### 1.3 Deploy the Marketplace full stack app (Vue.js Browser, NodeJS App, Redis and PostgreSQL)
 -------------------------------------------
 
 Before continuing with the deployment, let's build a docker image with your New Relic Browser Agent baked-in.
@@ -83,7 +70,11 @@ The nodejs app is pre-baked with the new relic application agent. This same agen
 
 Lets get the Vue.js app dockerized with your New Relic browser agent, click [link](https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/) to get started.
 
+
+
+
 # Continue 
+===============================================
 
 CAUTION: Do not continue this sub-stage before creating your NR instrumented Vue.js browser app docker image.
 
@@ -141,9 +132,9 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
 
 ## 2.0 Setup KUMA Service Mesh
--------------------------------------------
+====================================
 
-## 2.1 [Install Kuma](https://kuma.io/install)
+### 2.1 [Install Kuma](https://kuma.io/install)
 -------------------------------------------
 * Run the following curl script to automatically detect the OS and download kuma
 
@@ -189,10 +180,10 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
 
 
-## INTEGRATIONS
--------------------------------------------
+### INTEGRATIONS
+====================================
 
-## KONG GATEWAY BONUS (OPTIONAL)
+#### KONG GATEWAY BONUS (OPTIONAL)
 * Command to install Kong API G/W
         $ kubectl apply -f https://bit.ly/demokumakong
 
@@ -222,8 +213,10 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
         Now, hit the PROXY_IP URL (i.e. the Ingress Kong API G/W address), the marketplace app should be available there. 
 
 
+
 ## 3.0 NEW RELIC CENTRALIZED O11Y SETUP
--------------------------------------------
+====================================
+
 * Click on K8s instrumentation option via User menu ![Setup K8s 0](https://user-images.githubusercontent.com/25683435/96803352-d13bce80-1457-11eb-9587-615acee29dfd.png)
 
 * Fill in the required details and config attributes ![Setup K8s 1](https://user-images.githubusercontent.com/25683435/96803364-d6991900-1457-11eb-8873-09c2063347b2.png)
@@ -231,20 +224,25 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 * Next, copy helm chart deploy commands to clipboard ![Setup K8s 2](https://user-images.githubusercontent.com/25683435/96803366-d862dc80-1457-11eb-8c7f-e61b219669a0.png)
 * In case, if you don't have helm installed on your workstation, brew install helm
 
-
 * Last, validate that the data is received ![Setup K8s 3](https://user-images.githubusercontent.com/25683435/96803368-db5dcd00-1457-11eb-8746-5c872f34ba99.png)
 * Note: Your traffic permissions may block data off - skim through your Service Mesh config and settings via the GUI
 
+
+
 ## 4.0 NEW RELIC ACTIVATION STEPS
--------------------------------------------
+====================================
+
 * [Create Workload](https://one.newrelic.com/launcher/workloads.home) | [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/workloads/use-workloads#:~:text=one.newrelic.com%20%3E%20Apps,API%20to%20create%20a%20workload.)
 
 * [Explore K8s explorer](https://one.newrelic.com/launcher/k8s-cluster-explorer-nerdlet.cluster-explorer-launcher?) | [Doc](https://docs.newrelic.com/docs/integrations/kubernetes-integration/understand-use-data/kubernetes-cluster-explorer)
 
 * [Explore Entities](https://one.newrelic.com/launcher/nr1-core.explorer) | [Doc](https://docs.newrelic.com/docs/new-relic-one/use-new-relic-one/ui-data/entity-explorer-view-performance-across-apps-services-hosts)
 
+
+
 ## 5.0 NEW RELIC ADD-ONS
--------------------------------------------
+====================================
+
 * Ready to use alerts and dashboard templates for Terraform
 
 * Ready to use alert & dashboard JSONs
@@ -263,7 +261,8 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
 
 ## OTHER CRITICAL USE-CASES
--------------------------------------------
+====================================
+
 * Get Meshes
 
         $ ./kumactl get meshes
