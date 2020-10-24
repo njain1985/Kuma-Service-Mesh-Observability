@@ -71,7 +71,7 @@ When running on Kubernetes, Kuma will store all of its state and configuration o
 	minikube start --vm-driver=hyperkit -p kuma-demo --cpus=3 (min) --memory=8192 
 - Caution verify the compute power on your laptop before allocating 3 CPUs and 8 Gb memory
 
-- <ins>Wait until you see this output:</ins>
+- Wait until you see this output:
 	Done! kubectl is now configured to use "kuma-demo"
 * Note: You may also leverage [EKS](https://console.aws.amazon.com/eks/home?region=us-east-1#), [GKE](https://console.cloud.google.com/) or [AKS](https://portal.azure.com/?quickstart=true#home). 
 
@@ -94,7 +94,7 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
         First open the kuma-aio.yaml or vi kuma-aio.yaml and add the new relic license key
 
-        </ins>You may grab your license key from this and replace in the yaml file:</ins>
+        You may grab your license key from this and replace in the yaml file:
           name: NEW_RELIC_LICENSE_KEY
           value: "<INSERT_LICENSE_KEY>"
 
@@ -102,7 +102,7 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
         Next, replace the frontend docker app image name with the image you created in the sub-tutorial (NR browser instrumented docker frontend Vue.js app image) section
 
-        <ins>This will look like:</ins>
+        This will look like:
           cd full_stack_app_with_NR_FSO/
           vi kuma-aio.yaml
           replace image: monitorjain/kuma-demo-frontend:v3 with image: <hub_user>/<your image name>:<version>
@@ -115,7 +115,7 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
 
     	$ kubectl get pods -n kuma-demo
 
-        <ins>EXPECTED OUTPUT:</ins>
+        EXPECTED OUTPUT:
     	NAME                                   READY   STATUS    RESTARTS   AGE
     	kuma-demo-app-69c9fd4bd-4lkl7          1/1     Running   0          40s
     	kuma-demo-backend-v0-d7cb6b576-nrl67   1/1     Running   0          40s
