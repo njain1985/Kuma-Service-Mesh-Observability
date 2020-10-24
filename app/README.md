@@ -14,7 +14,7 @@ https://github.com/njain1985/Kuma-Service-Mesh-Observability/blob/main/app/dist/
 
 - You should now be able to view the app by going to [http://localhost:8080/](http://localhost:8080/).
 
-- Once done, continue with the marketplace yaml deployment. click [here](https://github.com/njain1985/Kuma-Service-Mesh-Observability)
+- Once done, continue with the marketplace yaml deployment. click [here](https://github.com/njain1985/Kuma-Service-Mesh-Observability#continue)
 
 ### Build the app
 
