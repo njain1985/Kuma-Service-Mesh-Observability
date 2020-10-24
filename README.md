@@ -98,7 +98,17 @@ Welcome back, now, let's add your unique New Relic License Key to the K8s deploy
           name: NEW_RELIC_LICENSE_KEY
           value: "<INSERT_LICENSE_KEY>"
 
-        $ kubectl apply -f kuma-aio.yaml
+        Repeat the license key input step 4 times over
+
+        Next, replace the frontend docker app image name with the image you created in the sub-tutorial (NR browser instrumented docker frontend Vue.js app image) section
+
+        This will look like:
+        cd full_stack_app_with_NR_FSO/
+        vi kuma-aio.yaml
+          replace image: monitorjain/kuma-demo-frontend:v3 with image: <hub_user>/<your image name>:<version>
+
+        Next, lets deploy the full stack app on the Minikube or cloud K8s cluster with the following command:
+          $ kubectl apply -f kuma-aio.yaml
     
 
 - And then check the pods are up and running by getting all pods in the kuma-demo namespace:
