@@ -15,7 +15,7 @@ In this tutorial, we will provide you the fundamentals of Kuma Service Mesh, NR1
 4. Have a monitor for your monitoring Infrastructure (Airbus A380 metaphor)
 
 Let's see a demo
-[NR1 Service Mesh Demo](loom video to be added)
+[NR1 Service Mesh Demo](https://fast.wistia.net/embed/channel/x9uxtbi724?wchannelid=x9uxtbi724&wmediaid=z7j7txsdq8)
 
 ## INTRODUCTIONS
 ====================================
